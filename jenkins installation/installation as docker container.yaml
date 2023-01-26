@@ -1,0 +1,36 @@
+#installation jenkins as docker container:
+sudo docker run -p 8080:8080 -p 50000:50000 -d \
+ -v jenkins_home:/var/jenkins_home \
+ -v /var/run/docker.sock:/var/run/docker.sock \
+ -v $(which docker):/usr/bin/docker jenkins/jenkins:lts
+
+
+#view your container is up and running:
+docker ps 
+
+#to exec inside your container:
+docker exec -it container-name bash
+
+#to exec as root user inside your container:
+docker exec -u 0 -it container-name bash 
+
+#to retrieve jenkins initation password 
+docker exec -it container-name bash \
+cat /var/jenkins_home/secrets/initialAdminPassword 
+
+or 
+
+docker volume inspect jenkins_home #outside the container 
+
+
+#to download build tools manually from inside the container (nodejs for example)
+docker exec -u 0 -it container-name bash 
+cat /etc/issue #to know which version of linux you are on 
+apt update 
+apt install curl 
+curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+ls
+bash node source_setup.sh
+sudo apt-get install -y nodejs
+node -v 
+npm -v 
