@@ -31,7 +31,9 @@ pipeline {
         success {
             echo 'this build is true'
         }
-
+        failure {
+            echo 'this code is written wrongly'
+        }
     }
 
 
