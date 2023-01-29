@@ -24,6 +24,15 @@ pipeline {
             }
         }    
     }
+    post {
+        always{
+            echo "this build number $BUILD_NUMBER"
+        }
+        success {
+            echo 'this build has been build successfully'
+        }
+
+    }
 
 
 }
