@@ -24,4 +24,15 @@ pipeline {
             }
         }    
     }
+    post {
+        always{
+            echo "this build has been build successfully"
+        }
+        success {
+            echo 'this build is true'
+        }
+
+    }
+
+
 }
