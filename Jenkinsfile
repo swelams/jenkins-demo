@@ -28,6 +28,7 @@ pipeline {
         stage('deployment') {  
             steps {
                 echo "your code is deployed right now"
+                echo "env.BUILD_NUMBER"
             }
         }    
     }
