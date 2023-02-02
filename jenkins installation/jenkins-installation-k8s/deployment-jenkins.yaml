@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: jenkins-master
+  name: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins-master
+  template:
+    metadata:
+      labels:
+        app: jenkins-master
+    spec:
+      securityContext:
+        fsGroup: 1000 
+        runAsUser: 0
+      initContainers:
+      - name: install-docker
+        image: docker:stable
+        command: ["cp", "/usr/local/bin/docker", "/data/docker"]    
+        volumeMounts:
+        - name: docker
+          mountPath: "/data"
+
+      - name: install-kubectl
+        image: eslamkarim/jenkins-ansible-kubectl
+        command: ["cp", "/usr/local/bin/kubectl", "/data/kubectl"]    
+        volumeMounts:
+        - name: kubectl
+          mountPath: "/data"    
+
+      containers:
+      - image: jenkins/jenkins
+        imagePullPolicy: IfNotPresent
+        name: jenkins
+        ports:
+        - name: http-port
+          containerPort: 8080
+        - name: jnlp-port 
+          containerPort: 50000
+        volumeMounts:
+        - mountPath: /var/run/docker.sock
+          name: docker-sock
+        - name: jenkins-home-volume
+          mountPath: "/var/jenkins_home"
+        - name: docker
+          subPath: "docker"
+          mountPath: "/usr/local/bin/docker"
+        - name: kubectl
+          subPath: "kubectl"
+          mountPath: "/usr/local/bin/kubectl"
+      # dnsPolicy: ClusterFirst
+      # hostNetwork: true
+      restartPolicy: Always
+      volumes:
+      - hostPath:
+          path: /var/run/docker.sock
+          type: ""
+        name: docker-sock
+      - name: jenkins-home-volume
+        persistentVolumeClaim:
+          claimName: jenkins-home-pvc 
+      - name: docker
+        emptyDir: {}
+      - name: kubectl
+        emptyDir: {}
