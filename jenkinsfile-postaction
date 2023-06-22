@@ -35,7 +35,7 @@ pipeline {
     }
     post {
         always {
-            slackSend message: "this pipeline has been build sucessfully $BUILD_NUMBER"
+            slackSend message: "slackSend color: 'good', message: 'this pipeline has been build sucessfully  $BUILD_NUMBER"
         }
     }
 }
