@@ -1,0 +1,19 @@
+on: [push]
+
+jobs:
+  deployment_job:
+    runs-on: ubuntu-latest
+    name: Deployment Job
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: SSH
+      uses: ErenKrt/ssh-push@main
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        private_key: ${{ secrets.PRIVATE_KEY }}
+    - name: Run npm build command
+      run: |
+          mkdir test
+          touch hello
