@@ -10,9 +10,9 @@ jobs:
     - name: SSH
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        private_key: ${{ secrets.PRIVATE_KEY }}
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USERNAME }}
+        private_key: ${{ secrets.SSH_PRIVATE_KEY}}
     - name: Run npm build command
       run: |
           mkdir test
