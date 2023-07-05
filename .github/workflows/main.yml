@@ -16,4 +16,4 @@ jobs:
     - name: Run npm build command
       run: |
           mkdir test
-          touch hello
+          touch hell
