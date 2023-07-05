@@ -15,4 +15,5 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
          touch /home/ubuntu/test
+         mkdir /home/ubuntu/test
  
