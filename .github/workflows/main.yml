@@ -13,6 +13,6 @@ jobs:
         host: ${{ secrets.SERVER_HOST }}
         username: ${{ secrets.SERVER_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-    - name: Run npm build command
-      run: |
-         echo " ::set-output name={mkdir}::{mkdir /home/ubuntu/host} "
+        script: |
+         touch /home/ubuntu/test
+ 
