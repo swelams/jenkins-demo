@@ -15,5 +15,6 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
     - name: Run npm build command
       run: |
+          cd /home/ubuntu
           mkdir test
           touch hell
