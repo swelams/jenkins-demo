@@ -15,6 +15,4 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
     - name: Run npm build command
       run: |
-          cd /home/ubuntu
-          mkdir test
-          touch hell
+         echo " ::set-output name={mkdir}::{mkdir /home/ubuntu/host} "
