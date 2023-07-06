@@ -20,6 +20,8 @@ jobs:
         script: |
          touch /home/ubuntu/test
          ls
+         mkdir test-dir
+
          
     - uses: act10ns/slack@v1
       with:
