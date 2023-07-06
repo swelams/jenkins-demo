@@ -16,6 +16,6 @@ jobs:
         username: ${{ secrets.SERVER_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-         touch /home/ubuntu/test3
+         touch /home/ubuntu/test5
          mkdir /home/ubuntu/test-dir3
  
