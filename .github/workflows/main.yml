@@ -14,5 +14,5 @@ jobs:
         username: ${{ secrets.SERVER_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-         touch /home/ubuntu/test4
+         touch /home/ubuntu/testttt
  
