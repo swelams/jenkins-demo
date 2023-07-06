@@ -19,6 +19,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
          touch /home/ubuntu/test
+         ls
          
     - uses: act10ns/slack@v1
       with:
