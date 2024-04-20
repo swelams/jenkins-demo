@@ -9,7 +9,7 @@ pipeline {
         stage('check') {
             steps {
                 echo "checking your code"
-                echo "${params.namespace}"
+                
                
             }
         }
