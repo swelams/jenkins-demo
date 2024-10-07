@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'echo "Hello World"'
+                sh 'echo "This is the Build Number: $BUILD_NUMBER"'
+                sh '''
+                  ls
+                  echo "1 2 3 4 5 6" > f0
+                '''
+            }
+        }
+    }
+    post {
+        success {
+            echo 'BUILD SUCCESS'
+        }
+    }
+}
