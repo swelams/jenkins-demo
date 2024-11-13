@@ -7,36 +7,42 @@ pipeline {
                     steps {
                         // Define commands or scripts for Stage A
                         echo 'Running Stage A'
+                        sh 'sleep 60'
                     }
                 }
                 stage('Stage B') {
                     steps {
                         // Define commands or scripts for Stage B
                         echo 'Running Stage B'
+                        sh 'sleep 60'
                     }
                 }
                 stage('Stage c') {
                     steps {
                         // Define commands or scripts for Stage A
                         echo 'Running Stage c'
+                        sh 'sleep 60'
                     }
                 }
                 stage('Stage d') {
                     steps {
                         // Define commands or scripts for Stage B
                         echo 'Running Stage d'
+                        sh 'sleep 60'
                     }
                 }
                 stage('Stage e') {
                     steps {
                         // Define commands or scripts for Stage A
                         echo 'Running Stage e'
+                        sh 'sleep 60'
                     }
                 }
                 stage('Stage g') {
                     steps {
                         // Define commands or scripts for Stage B
                         echo 'Running Stage f'
+                        sh 'sleep 60'
                     }
                 }
                 // Add more stages as needed
