@@ -24,9 +24,9 @@ pipeline {
 
                 echo "Password: ${params.PASSWORD}"
 
-                echo "docker build -t nti:$BUILD_NUMBER ."
+                echo "docker build -t nti:${env.BUILD_NUMBER} ."
 
-                echo "kubectl apply -f deployment.yaml -n $BRANCH_NAME"
+                echo "kubectl apply -f deployment.yaml -n ${env.BRANCH_NAME}"
             }
         }
     }
