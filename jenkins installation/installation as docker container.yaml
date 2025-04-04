@@ -34,3 +34,11 @@ bash nodesource_setup.sh
 apt-get install -y nodejs
 node -v 
 npm -v 
+
+
+
+
+
+docker build -t mohamedswelam/freestyle:1 .
+echo $PASSWORD | docker login -u $USERNAME --password-stdin
+docker push mohamedswelam/freestyle:1
