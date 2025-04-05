@@ -20,9 +20,9 @@ pipeline {
 
                 echo "Choice: ${params.CHOICE}"
 
-                echo "docker build -t nti:${env.BUILD_NUMBER} ."
+            
 
-                echo "kubectl apply -f deployment.yaml -n $BRANCH_NAME"
+                
             }
         }
     }
