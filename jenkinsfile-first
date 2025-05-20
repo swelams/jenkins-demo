@@ -20,7 +20,7 @@ pipeline {
         stage('docker push') {  
             steps {
                 echo "docker push is running now"
-                withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
                     sh "docker push mohamedswelam/freestyle:${env.BUILD_NUMBER}"
                     
