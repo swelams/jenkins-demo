@@ -13,8 +13,8 @@ pipeline {
         stage('docker build') {
             steps {
                 echo "building dockerfile"
-                sh "docker build -t mohamedswelam/freestyle:${env.BUILD_NUMBER} ."
-                error 
+                sh "kubectl build -t mohamedswelam/freestyle:${env.BUILD_NUMBER} ."
+                 
             }
         }
         
