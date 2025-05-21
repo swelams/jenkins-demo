@@ -14,6 +14,7 @@ pipeline {
             steps {
                 echo "building dockerfile"
                 sh "docker build -t mohamedswelam/freestyle:${env.BUILD_NUMBER} ."
+                error 
             }
         }
         
