@@ -37,5 +37,11 @@ pipeline {
         always {
             echo "slackSend color: good message:this pipeline has been build sucessfully"
         }
+        success {
+            echo "pipeline success"
+        }
+        failure{
+            echo "pipeline failure"
+        }
     }
 }
