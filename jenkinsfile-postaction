@@ -4,6 +4,7 @@ pipeline {
         stage("Build") {
             steps {
                 echo "Build stage."
+                sh 'echo hello-from-iti > new-file.txt'
             }
             post {
                 always {
