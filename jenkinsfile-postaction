@@ -15,7 +15,7 @@ pipeline {
         stage("Test") {
             steps {
                 echo "Test stage."
-            }
+            } 
             post {
                 unstable {
                     echo "This block runs when the status of this stage is marked unstable."
