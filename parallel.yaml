@@ -15,6 +15,7 @@ pipeline {
                         // Define commands or scripts for Stage B
                         echo 'Running Stage B'
                         sh 'sleep 60'
+                        error
                     }
                 }
                 stage('Stage c') {
