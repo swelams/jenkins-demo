@@ -13,7 +13,7 @@ pipeline {
         stage('docker build') {
             steps {
                 echo "building dockerfile"
-                sh 'docker build -t mohamedswelam/nti .'
+                sh "docker build -t mohamedswelam/nti:${env.BUILD_NUMBER} ."
                
                 
                  
@@ -25,7 +25,7 @@ pipeline {
                 echo "docker push is running now"
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
-                    sh 'docker push mohamedswelam/nti'
+                    sh "docker push mohamedswelam/nti:${env.BUILD_NUMBER}"
                 
                 }
             }    
