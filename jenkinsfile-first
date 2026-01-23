@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo "docker push is running now"
                     
-                }
+                
             }
         }    
     }
