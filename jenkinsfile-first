@@ -27,8 +27,8 @@ pipeline {
                     sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
                     sh 'docker push mohamedswelam/nti'
                 
-            }
-        }    
-    }
+                }
+            }    
+        }
 
 }
