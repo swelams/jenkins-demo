@@ -4,15 +4,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh "docker build -t mohamedswelam/nti:${env.BUILD_NUMBER} ."
-            }
-
-        }
-        stage('login') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    sh "docker push mohamedswelam/nti:${env.BUILD_NUMBER}"
-                }
+                sh 'echo hello-from-nti > nti-new'
             }
 
         }
