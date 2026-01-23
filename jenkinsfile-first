@@ -13,8 +13,8 @@ pipeline {
         stage('docker build') {
             steps {
                 echo "building dockerfile"
-                sh 'docker build .'
-                sh 'docker tag mohamedswelam/nti'
+                sh 'docker build -t mohamedswelam/nti .'
+               
                 
                  
             }
